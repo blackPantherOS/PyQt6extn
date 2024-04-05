@@ -1,6 +1,6 @@
 # PyQt6extn
 
-An extension for the Python PyQt6 Qt Framework which expands the scope of the PyQt6 package with many different modern widgets. Current release is occupied with two widget which are not natively present in the PyQt6 package.
+An extension for the Python PyQt6 Qt Framework which expands the scope of the PyQt6 package with many different modern widgets. Current release has two widgets which are not natively present in the PyQt6 package.
 
 *RoundProgressBar*
 
