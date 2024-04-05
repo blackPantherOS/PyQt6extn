@@ -4,26 +4,22 @@ with open("README.md", "r") as fh:
     long_description = fh.read()
 
 setuptools.setup(
-    name="PySide2extn", # Replace with your own username
+    name="PyQt6extn", 
     version="1.0.0",
-    author="ANJAL.P",
-    author_email="opensource.anj.official@gmail.com",
-    description="PySide2extn is an Open Source Python Programming language extension for PySide2, which greatly enhances the capability of the PySide2 library with extra widgets and more.",
+    author="Charles K Barcza",
+    author_email="kbarcza@blackpanther.hu",
+    description="PySide2extn fork for PyQt6. An Open Source Python Programming language extension for PyQt6, which greatly enhances the capability of the PyQt6 library with extra widgets and more.",
     long_description=long_description,
     long_description_content_type="text/markdown",
-    url="https://github.com/anjalp/PySide2extn",
+    url="https://github.com/blackPantherOS/PyQt6extn",
     packages=setuptools.find_packages(),
     classifiers=[
         "Development Status :: 5 - Production/Stable",
         "Intended Audience :: Developers",
-        "Programming Language :: Python :: 3.5",
-        "Programming Language :: Python :: 3.6",
-        "Programming Language :: Python :: 3.7",
-        "Programming Language :: Python :: 3.8",
-        "Programming Language :: Python :: 3.9",
+        "Programming Language :: Python :: 3.11",
         "License :: OSI Approved :: MIT License",
         "Operating System :: OS Independent",
     ],
-    python_requires='>=3.6',
-    install_requires=["PySide2"],
+    python_requires='>=3.11',
+    install_requires=["PyQt6"],
 )
