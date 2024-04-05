@@ -1,19 +1,16 @@
 import sys
 from PySide2 import QtCore, QtWidgets, QtGui
-from PySide2extn.RoundProgressBar import roundProgressBar
+from PySideExtn.RoundProgressBar import roundProgressBar
 
 class MyWidget(QtWidgets.QWidget):
     def __init__(self):
         QtWidgets.QWidget.__init__(self)
 
         self.rpb = roundProgressBar()
-        self.rpb2 = roundProgressBar()
-        self.rpb.rpb_setInitialPos('South')
-        self.rpb2.rpb_setInitialPos('East')
+        self.rpb.rpb_setBarStyle('Pizza') #CHANGE THE BAR STYLE TO : 'Pizza'
 
-        self.layout = QtWidgets.QHBoxLayout()
+        self.layout = QtWidgets.QVBoxLayout()
         self.layout.addWidget(self.rpb)
-        self.layout.addWidget(self.rpb2)
         self.setLayout(self.layout)
 
 if __name__ == "__main__":

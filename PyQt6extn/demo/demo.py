@@ -6,19 +6,19 @@
 #           by the Qt Frame work (or atleast for Python version of Qt).                     #
 # VERSION:  v1.0.0                                                                          #
 # NOTES:    Demo Application 										                        #
-# REFER:    Github: https://github.com/anjalp/PySide2extn                                   #
+# REFER:    Github: https://github.com/anjalp/PySideExtn                                   #
 #############################################################################################
 
 
-from PySide2.QtCore import (QCoreApplication, QDate, QDateTime, QMetaObject,
+from PyQt6.QtCore import (QCoreApplication, QDate, QDateTime, QMetaObject,
     QObject, QPoint, QRect, QSize, QTime, QUrl, Qt)
-from PySide2.QtGui import (QBrush, QColor, QConicalGradient, QCursor, QFont,
+from PyQt6.QtGui import (QBrush, QColor, QConicalGradient, QCursor, QFont,
     QFontDatabase, QIcon, QKeySequence, QLinearGradient, QPalette, QPainter,
     QPixmap, QRadialGradient)
-from PySide2.QtWidgets import *
+from PyQt6.QtWidgets import *
 
-from PySide2extn.RoundProgressBar import roundProgressBar
-from PySide2extn.SpiralProgressBar import spiralProgressBar
+from PySideExtn.RoundProgressBar import roundProgressBar
+from PySideExtn.SpiralProgressBar import spiralProgressBar
 
 
 class Ui_MainWindow(object):
@@ -330,7 +330,7 @@ class Ui_MainWindow(object):
     # setupUi
 
     def retranslateUi(self, MainWindow):
-        MainWindow.setWindowTitle(QCoreApplication.translate("MainWindow", u"Demo Application PySide2extn", None))
+        MainWindow.setWindowTitle(QCoreApplication.translate("MainWindow", u"Demo Application PySideExtn", None))
         self.b1.setText(QCoreApplication.translate("MainWindow", u"S", None))
         self.b3.setText(QCoreApplication.translate("MainWindow", u"D", None))
         self.b2.setText(QCoreApplication.translate("MainWindow", u"I", None))

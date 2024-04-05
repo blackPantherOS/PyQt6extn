@@ -1,7 +1,8 @@
 import sys
 from PySide2 import QtCore, QtWidgets, QtGui
 
-from PySide2extn.RoundProgressBar import roundProgressBar #IMPORT THE EXTENSION LIBRARY
+#IMPORT THE EXTENSION  LIBRARY
+from PySideExtn.SpiralProgressBar import spiralProgressBar 
 
 x = 0
 p = 1
@@ -10,19 +11,22 @@ class MyWidget(QtWidgets.QWidget):
     def __init__(self):
         QtWidgets.QWidget.__init__(self)
 
-        self.hello = 'Round Progress Bar'
+        self.hello = 'Spiral Progress Bar'
         self.button = QtWidgets.QPushButton("Click me to change Value")
-        self.text = QtWidgets.QLabel("Round Progress Bar")
+        self.text = QtWidgets.QLabel("Spiral Progress Bar")
         self.text.setAlignment(QtCore.Qt.AlignCenter)
         
-        self.rpb = roundProgressBar()    #CREATING THE ROUND PROGRESS BAR OBJECT
+        #CREATING THE SPIRAL PROGRESS BAR OBJECT
+        self.spb = spiralProgressBar()    
         
+        #ADDING WIDGETS TO THE VERTICAL LAYOUT
         self.layout = QtWidgets.QVBoxLayout()
         self.layout.addWidget(self.text)
         self.layout.addWidget(self.button)
         
-        self.layout.addWidget(self.rpb) # ADDING THE ROUND PROGRESS BAR OBJECT TO THE                                         # BOTTOM OF THE LAYOUT
-
+        # ADDING THE SPIRAL PROGRESS BAR OBJECT TO THE LAYOUT
+        self.layout.addWidget(self.spb) 
+        
         self.setLayout(self.layout)
         self.button.clicked.connect(self.magic) #BUTTON PRESSED EVENT
         
@@ -33,8 +37,12 @@ class MyWidget(QtWidgets.QWidget):
             p = -1
         elif x==0:
             p = 1
-        self.rpb.rpb_setValue(x)        #CHANGING THE VALUE OF THE PROGRESS BAR
-        out_text = 'Round Progress Bar: ' + str(x) + '%'
+            
+        #CHANGING THE VALUE OF THE 3 DEFAULT PROGRESS BAR
+        self.spb.spb_setValue((x, x*2, x*3)) 
+        
+        out_text = 'Spiral Progress Bar: '  
+        out_text = out_text + str(x) + '%, ' + str(2*x) + '%, ' + str(3*x) + '%'
         self.text.setText(out_text)
         
 if __name__ == "__main__":

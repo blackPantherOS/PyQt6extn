@@ -1,19 +1,7 @@
-#############################################################################################
-# CREATOR:  ANJAL.P                                                                         #
-# ON:       2020 SEP.                                                                       #
-# AIM:      To Extend the capability of the PySide2 and PyQt5 Python library with easy to   #
-#           use extension containing commonly used widgets which is not natively supported  #
-#           by the Qt Frame work (or atleast for Python version of Qt).                     #
-# VERSION:  v1.0.0                                                                          #
-# NOTES:    CLASS : RoundProgressBar : Can be accessed by : importing                       #
-#           from PySide2extn.RoundProgressBar import roundProgressBar                       #
-# REFER:    Github: https://github.com/anjalp/PySide2extn                                   #
-#############################################################################################
 
-
-from PySide2 import QtWidgets, QtCore
-from PySide2.QtCore import Qt, QSize
-from PySide2.QtGui import QBrush, QColor, QPainter, QPen, QPaintEvent, QFont
+from qtpy import QtWidgets, QtCore
+from qtpy.QtCore import Qt, QSize
+from qtpy.QtGui import QBrush, QColor, QPainter, QPen, QPaintEvent, QFont
 
 
 class roundProgressBar(QtWidgets.QWidget):
@@ -895,7 +883,7 @@ class roundProgressBar(QtWidgets.QWidget):
         penLine.setCapStyle(self.rpb_lineCap)
         penLine.setJoinStyle(Qt.RoundJoin)
         linePainter.setPen(penLine)
-        linePainter.drawArc(self.positionX + self.posFactor, self.positionY + self.posFactor, self.rpb_Size - self.sizeFactor, self.rpb_Size - self.sizeFactor, self.startPosition, self.rpb_value)
+        linePainter.drawArc(int(self.positionX + self.posFactor), int(self.positionY + self.posFactor), int(self.rpb_Size - self.sizeFactor), int(self.rpb_Size - self.sizeFactor), int(self.startPosition), int(self.rpb_value))
         linePainter.end()
 
     def pathComponent(self):
@@ -908,7 +896,8 @@ class roundProgressBar(QtWidgets.QWidget):
         penPath.setCapStyle(Qt.RoundCap)
         penPath.setJoinStyle(Qt.RoundJoin)
         pathPainter.setPen(penPath)
-        pathPainter.drawArc(self.positionX + self.posFactor, self.positionY + self.posFactor, self.rpb_Size - self.sizeFactor, self.rpb_Size - self.sizeFactor, 0, 360*16)
+        pathPainter.drawArc(int(self.positionX + self.posFactor), int(self.positionY + self.posFactor), int(self.rpb_Size - self.sizeFactor), int(self.rpb_Size - self.sizeFactor), 0, 360*16)
+
         pathPainter.end()
 
     def textComponent(self):
@@ -919,9 +908,9 @@ class roundProgressBar(QtWidgets.QWidget):
             textPainter.setPen(penText)
             fontText = QFont()
             fontText.setFamily(self.rpb_textFont)
-            fontText.setPointSize(self.rpb_textWidth)
+            fontText.setPointSize(int(self.rpb_textWidth))
             textPainter.setFont(fontText)
-            textPainter.drawText(self.positionX + self.textFactorX, self.positionY + self.textFactorY, self.rpb_textValue)
+            textPainter.drawText(int(self.positionX + self.textFactorX), int(self.positionY + self.textFactorY), self.rpb_textValue)
             textPainter.end()
 
     def circleComponent(self):
@@ -932,7 +921,7 @@ class roundProgressBar(QtWidgets.QWidget):
         circlePainter.setRenderHint(QPainter.Antialiasing)
         circlePainter.setPen(penCircle)
         circlePainter.setBrush(QColor(self.rpb_circleColor[0], self.rpb_circleColor[1], self.rpb_circleColor[2]))
-        circlePainter.drawEllipse(self.rpb_circlePosX, self.rpb_circlePosY, (self.rpb_Size - self.sizeFactor)*self.rpb_circleRatio, (self.rpb_Size - self.sizeFactor)*self.rpb_circleRatio)
+        circlePainter.drawEllipse(int(self.rpb_circlePosX), int(self.rpb_circlePosY), int((self.rpb_Size - self.sizeFactor)*self.rpb_circleRatio), int((self.rpb_Size - self.sizeFactor)*self.rpb_circleRatio))
 
     def pieComponent(self):
         piePainter = QPainter(self)   
@@ -942,7 +931,7 @@ class roundProgressBar(QtWidgets.QWidget):
         piePainter.setRenderHint(QPainter.Antialiasing)
         piePainter.setPen(penPie)
         piePainter.setBrush(QColor(self.rpb_pieColor[0], self.rpb_pieColor[1], self.rpb_pieColor[2]))
-        piePainter.drawPie(self.rpb_piePosX, self.rpb_piePosY, (self.rpb_Size - self.sizeFactor)*self.rpb_pieRatio, (self.rpb_Size - self.sizeFactor)*self.rpb_pieRatio, self.startPosition, self.rpb_value)
+        piePainter.drawPie(int(self.rpb_piePosX), int(self.rpb_piePosY), int((self.rpb_Size - self.sizeFactor)*self.rpb_pieRatio), int((self.rpb_Size - self.sizeFactor)*self.rpb_pieRatio), int(self.startPosition), int(self.rpb_value))
 
 
 #------------------------------------------------------

@@ -1,19 +1,7 @@
-#############################################################################################
-# CREATOR:  ANJAL.P                                                                         #
-# ON:       2020 NOV.                                                                       #
-# AIM:      To Extend the capability of the PySide2 and PyQt5 Python library with easy to   #
-#           use extension containing commonly used widgets which is not natively supported  #
-#           by the Qt Frame work (or atleast for Python version of Qt).                     #
-# VERSION:  v1.0.0                                                                          #
-# NOTES:    CLASS : SpiralProgressBar : Can be accessed by : importing                      #
-#           from PySide2extn.SpiralProgressBar import spiralProgressBar                     #
-# REFER:    Github: https://github.com/anjalp/PySide2extn                                   #
-#############################################################################################
 
-
-from PySide2 import QtWidgets, QtCore
-from PySide2.QtCore import Qt, QSize
-from PySide2.QtGui import QBrush, QColor, QPainter, QPen, QPaintEvent, QFont
+from qtpy import QtWidgets, QtCore
+from qtpy.QtCore import Qt, QSize
+from qtpy.QtGui import QBrush, QColor, QPainter, QPen, QPaintEvent, QFont
 
 class spiralProgressBar(QtWidgets.QWidget):
 
@@ -879,7 +867,7 @@ class spiralProgressBar(QtWidgets.QWidget):
                 self.penPath.setWidth(self.tempWidth)
                 self.penPath.setBrush(QColor(self.pathColor[path][0], self.pathColor[path][1], self.pathColor[path][2]))
                 self.pathPainter.setPen(self.penPath)
-                self.pathPainter.drawArc(self.positionX + self.posFactor + self.spb_cngSize*spiralIncrem2, self.positionY + self.posFactor + self.spb_cngSize*spiralIncrem2, self.spb_Size - self.sizeFactor - 2*self.spb_cngSize*spiralIncrem2, self.spb_Size - self.sizeFactor - 2*self.spb_cngSize*spiralIncrem2, self.spb_startPos[path], 360*16)
+                self.pathPainter.drawArc(int(self.positionX + self.posFactor + self.spb_cngSize*spiralIncrem2), int(self.positionY + self.posFactor + self.spb_cngSize*spiralIncrem2), int(self.spb_Size - self.sizeFactor - 2*self.spb_cngSize*spiralIncrem2), int(self.spb_Size - self.sizeFactor - 2*self.spb_cngSize*spiralIncrem2), self.spb_startPos[path], 360*16)
                 self.pathPainter.end()
                 spiralIncrem2 = spiralIncrem2 + self.spb_gap
                 
@@ -898,7 +886,7 @@ class spiralProgressBar(QtWidgets.QWidget):
             self.penLine.setCapStyle(self.lineCap[bar])
             self.penLine.setBrush(QColor(self.lineColor[bar][0], self.lineColor[bar][1], self.lineColor[bar][2]))
             self.linePainter.setPen(self.penLine)
-            self.linePainter.drawArc(self.positionX + self.posFactor + self.spb_cngSize*spiralIncrem, self.positionY + self.posFactor + self.spb_cngSize*spiralIncrem, self.spb_Size - self.sizeFactor - 2*self.spb_cngSize*spiralIncrem, self.spb_Size - self.sizeFactor - 2*self.spb_cngSize*spiralIncrem, self.spb_startPos[bar], self.spb_value[bar])
+            self.linePainter.drawArc(int(self.positionX + self.posFactor + self.spb_cngSize*spiralIncrem), int(self.positionY + self.posFactor + self.spb_cngSize*spiralIncrem), int(self.spb_Size - self.sizeFactor - 2*self.spb_cngSize*spiralIncrem), int(self.spb_Size - self.sizeFactor - 2*self.spb_cngSize*spiralIncrem), int(self.spb_startPos[bar]), int(self.spb_value[bar]))
             self.linePainter.end()
             spiralIncrem = spiralIncrem + self.spb_gap
 
